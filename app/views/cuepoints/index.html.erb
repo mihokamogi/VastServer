@@ -1,0 +1,36 @@
+<div class="col-md-offset-1 col-md-8">
+
+<h1>キューポイント一覧</h1>
+
+<button class="btn btn-default" type="submit">登録</button> <!-- ここあとでへんこう -->
+
+<% if @cuepoints.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>cuepoint</th>
+        <th>create</th>
+        <th>update</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    
+      <% @cuepoints.each do |cuepoint| %>
+        <tr>  
+          <td><%= link_to cuepoint.id, cuepoint %> </td>
+          <td><%= cuepoint.name %></td>
+          <td><%= cuepoint.created_at %></td>
+          <td><%= cuepoint.updated_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= paginate @cuepoints %>
+  </div>
+  </div>
+
+<% end %>
+

@@ -1,3 +1,14 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+root to: 'cuepoints#index'
+
+get "cuepoints/:id/campaigns" , to: "campaigns#index" 
+post "results?campaign=:id&cuepoint=:id&event=start", to: "results#create"
+post "results?campaign=:id&cuepoint=:id&event=complete", to: "results#create"
+
+resources:cuepoints
+resources:campaigns
+resources :results, only: :index 
+
 end
+
