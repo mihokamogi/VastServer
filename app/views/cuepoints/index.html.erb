@@ -1,8 +1,9 @@
-<div class="col-md-offset-1 col-md-8">
+<div class="container">
+<div class="col-md-8">
 
 <h1>キューポイント一覧</h1>
 
-<button class="btn btn-default" type="submit">登録</button> <!-- ここあとでへんこう -->
+<%= link_to "登録", new_cuepoint_path, class: "btn btn-default" %>
 
 <% if @cuepoints.any? %>
   <table class="table table-striped">
@@ -31,6 +32,7 @@
     <%= paginate @cuepoints %>
   </div>
   </div>
+</div>
 
 <% end %>
 

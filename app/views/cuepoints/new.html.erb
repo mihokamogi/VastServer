@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-offset-1 col-xs-4">
+  
+      <div class="heading"><h2>キューポイント登録</h2></div>
+        <div class="body">
+          <%= form_for(@cuepoint) do |f| %>
+            <div class="form group">
+              <%= f.label :name, "Name" %>
+              <%= f.text_field :name, class: "form-control" %>
+            </div>
+            
+            <div class="text">
+              <%= f.submit "登録", class: "btn btn-success" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

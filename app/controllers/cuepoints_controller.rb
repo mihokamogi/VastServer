@@ -7,10 +7,21 @@ class CuepointsController < ApplicationController
   end
 
   def new
+    @cuepoint = Cuepoint.new
   end
 
   def create
+    @cuepoint = Cuepoint.new(cuepoint_params)
+    
+    if @cuepoint.save
+      flash[:success] = "キューポイントを登録しました。"
+      redirect_to root_path
+    else
+      flash[:danger] = "キューポイントの登録に失敗しました。"
+      render :new
+    end
   end
+  
 
   def edit
   end
@@ -20,4 +31,14 @@ class CuepointsController < ApplicationController
 
   def destroy
   end
-end
+
+
+  private
+  
+  def cuepoint_params
+    params.require(:cuepoint).permit(:name)
+  end
+  
+end  
+
+
