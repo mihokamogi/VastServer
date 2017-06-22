@@ -1,9 +1,11 @@
 <header>
+ 
+ 
   <div class="row">
     <div class="col-sm-offset-1 col-md-8">
 
-  <nav class="navbar nabvar-default navbar-static-top">
-   
+    <nav class="navbar nabvar-default navbar-static-top">
+     <%= stylesheet_link_tag 'navbar', media: 'all','data-turbolinks-track' => true %>
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false" ">
           <span class="sr-only">Toggle navigation</span>
@@ -22,8 +24,10 @@
           <li class="<%= 'active' if current_page?(results_path) %>"><%= link_to results_path do %>Results<% end %></li>
        </ul>
       </div>
+    </nav>
     </div>
-  
-  </nav>
+  </div>
+
+    
   
 </header>
