@@ -3,9 +3,6 @@ class CuepointsController < ApplicationController
     @cuepoints = Cuepoint.all.page(params[:page]).per(10)
   end
 
-  def show
-  end
-
   def new
     @cuepoint = Cuepoint.new
   end
@@ -22,14 +19,28 @@ class CuepointsController < ApplicationController
     end
   end
   
-
   def edit
+    @cuepoint = Cuepoint.find(params[:id])
   end
 
   def update
+    @cuepoint = Cuepoint.find(params[:id])
+    
+    if@cuepoint.update(cuepoint_params)
+      flash[:success] = "キューポイントは正常に更新されました。"
+      redirect_to cuepoints_path
+    else
+      flash.now[:danger] = "キューポイントは更新されませんでした。"
+      render :edit
+    end
   end
 
   def destroy
+    @cuepoint = Cuepoint.find(params[:id])
+    @cuepoint.destroy
+    
+    flash[:success] = "キューポイントは正常に削除されました。"
+    redirect_to cuepoints_path
   end
 
 
