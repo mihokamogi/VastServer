@@ -1,6 +1,6 @@
 class CuepointsController < ApplicationController
   def index
-    @cuepoints = Cuepoint.all.page(params[:page])
+    @cuepoints = Cuepoint.all.page(params[:page]).per(10)
   end
 
   def show
