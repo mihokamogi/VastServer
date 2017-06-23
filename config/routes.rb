@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-root to: 'cuepoints#index'
+root to: 'campaigns#index'
 
 get "cuepoints/:id/campaigns" , to: "campaigns#index" 
 post "results?campaign=:id&cuepoint=:id&event=start", to: "results#create"
