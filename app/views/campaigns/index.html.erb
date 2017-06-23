@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="col-md-8">
+
+  <h1>キャンペーン一覧</h1>
+
+  <%= link_to "登録", new_campaign_path, class: "btn btn-default" %>
+
+<% if @campaigns.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>start</th>
+        <th>end</th>
+        <th>goal</th>
+        <th>create</th>
+        <th>update</th>
+      </tr>
+    </thead>
+    
+    <tbody>
+    
+      <% @campaigns.each do |campaign| %>
+        <tr>  
+          <td><%= link_to campaign.id, campaign %> </td>
+          <td><%= campaign.name %></td>
+          <td><%= campaign.start_at %></td>
+          <td><%= campaign.end_at %></td>
+          <td><%= limit.start %></td>
+          <td><%= movie_ul %></td>
+          <td><%= cuepoint.created_at %></td>
+          <td><%= cuepoint.updated_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= paginate @campaigns %>
+  </div>
+  </div>
+</div>
+
+<% end %>
+
