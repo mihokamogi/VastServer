@@ -39,7 +39,7 @@ class CampaignsController < ApplicationController
     @campaign = Campaign.find(params[:id])
     @campaign.destroy
     
-    flash[:success] = "キューポイントは正常に削除されました。"
+    flash[:success] = "キャンペーンは正常に削除されました。"
     redirect_to root_path
   end
 

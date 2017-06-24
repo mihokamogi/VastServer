@@ -1,4 +1,5 @@
 class CuepointsController < ApplicationController
+  
   def index
     @cuepoints = Cuepoint.all.page(params[:page]).per(10)
   end
@@ -19,6 +20,7 @@ class CuepointsController < ApplicationController
     end
   end
   
+
   def edit
     @cuepoint = Cuepoint.find(params[:id])
   end
