@@ -1,29 +1,26 @@
 <div class="container">
-    <div class="row">
-      <div class="col-offser-md-1 col-md-8">
-        <div class="heading"><h2>キューポイント編集</h2></div>
-          <div class="body">
-            <%= form_for(@cuepoint) do |f| %>
-              <div class="form group">
-                <ul class="list-inline">
-                  <li><%= f.label :name, "Name" %></li>
-                  <li><%= f.text_field :name %></li>
-                </ul>
-                <ul class="list-inline">
-                  <li><%= f.label :url, "VAST URL" %></li>
-                  <li><%= link_to "https://ide.c9.io/mihokamogi/techacademy/cuepoint/params([:id])/campaigns.xml" %></li>
-                </ul>
-              </div>
-              
-              <div class="text-left">
-                <%= f.submit "登録", class: "btn btn-success" %>
-                <a class="btn btn-default" href="/cuepoints">中止</a>
-                <%= link_to "削除", @cuepoint, method: :delete, data: {confirm: "本当に削除してよろしいですか？" } %>
-              </div>
-              
-            <% end %>
+  <div class="row">
+    <div class="col-offser-md-1 col-md-8">
+      <div class="heading"><h2>キューポイント編集</h2></div>
+        <div class="body">
+          <%= form_for(@cuepoint) do |f| %>
+            <div class="form group">
+            <ul class="list-inline">
+              <li><%= f.label :name, "Name" %></li>
+              <li><%= f.text_field :name %></li>
+            </ul>
+            <ul class="list-inline">
+              <li><%= f.label :url, "VAST URL" %></li>
+              <li><%= link_to "https://ide.c9.io/mihokamogi/techacademy/cuepoint/params([:id])/campaigns.xml" %></li>
+            </ul>
           </div>
-        </div>
+          <div class="text-left">
+            <%= f.submit "登録", class: "btn btn-success" %>
+            <a class="btn btn-default" href="/cuepoints">中止</a>
+            <%= link_to "削除", @cuepoint, method: :delete, data: {confirm: "本当に削除してよろしいですか？" } %>
+          </div>
+        <% end %>
       </div>
     </div>
+  </div>
 </div>
