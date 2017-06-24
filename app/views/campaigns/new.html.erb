@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+      <div class="col-offser-md-1 col-md-8">
+        <div class="heading"><h2>キャンペーン登録</h2></div>
+          <div class="body">
+          
+            <%= form_for(@campaign) do |f| %>
+              <div class="form group">
+                <ul class="list-inline" >
+                  <li><%= f.label :name, "Name" %></li>
+                  <li><%= f.text_field :name, class: "form-control" %></li>
+                </ul>
+                <ul class="list-inline">
+                  <li><%= f.label :start_at, "Start at" %></li>
+                  <li><%= f.text_field :start_at, class: "form-control" %></li>
+                </ul>
+                <ul class="list-inline">
+                  <li><%= f.label :end_at, "End at" %></li>
+                  <li><%= f.text_field :end_at, class: "form-control" %></li>
+                </ul>
+                <ul class="list-inline">
+                  <li><%= f.label :movie_url, "Movie url" %></li>
+                  <li><%= f.text_field :movie_url, class: "form-control" %></li>
+                </ul>
+                <ul class="list-inline">
+                  <li><%= f.label :name, "Cuepoints" %></li>
+                  <li><%= f.text_field :name, class: "form-control" %></li>
+                </ul>
+              </div>
+              
+              <div class="text-left">
+                <%= f.submit "登録", class: "btn btn-success" %>
+              </div>
+              
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
