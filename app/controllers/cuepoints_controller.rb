@@ -13,7 +13,7 @@ class CuepointsController < ApplicationController
     
     if @cuepoint.save
       flash[:success] = "キューポイントを登録しました。"
-      redirect_to root_path
+      redirect_to cuepoints_path
     else
       flash[:danger] = "キューポイントの登録に失敗しました。"
       render :new
@@ -45,11 +45,12 @@ class CuepointsController < ApplicationController
     redirect_to cuepoints_path
   end
 
+  
 
   private
   
   def cuepoint_params
-    params.require(:cuepoint).permit(:name)
+    params.require(:cuepoint).permit(:id, :name)
   end
   
 end  
