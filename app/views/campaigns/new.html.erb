@@ -23,9 +23,20 @@
                   <li><%= f.text_field :movie_url, class: "form-control" %></li>
                 </ul>
                 <ul class="list-inline">
+                
                   <li><%= f.label :name, "Cuepoints" %></li>
-                  <li><%= f.text_field :name, class: "form-control" %></li>
+                  <li>
+                    <div class="checkbox">
+                      <% @cuepoints.each do |c| %>
+                          <label>
+                          <%= f.check_box :cuepoints, {}, c.id %><%= c.name %>
+                          </label>
+                        
+                      <% end %>
+                      </div>
+                  </li>
                 </ul>
+                
               </div>
               
               <div class="text-left">

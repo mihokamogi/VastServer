@@ -5,6 +5,7 @@ class CampaignsController < ApplicationController
 
   def new
     @campaign = Campaign.new
+    @cuepoints = Cuepoint.all
   end
 
   def create
@@ -21,6 +22,7 @@ class CampaignsController < ApplicationController
   
   def edit
     @campaign = Campaign.find(params[:id])
+    @cuepoints = Cuepoint.all
   end
 
   def update
