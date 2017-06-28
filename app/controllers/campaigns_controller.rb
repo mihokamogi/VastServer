@@ -10,6 +10,7 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_params)
+    @cuepoints = Cuepoint.all
     
     if @campaign.save
       flash[:success] = "キャンペーンを登録しました。"
@@ -18,6 +19,7 @@ class CampaignsController < ApplicationController
       flash[:danger] = "キャンペーンの登録に失敗しました。"
       render :new
     end
+    
   end
   
   def edit
@@ -49,8 +51,8 @@ class CampaignsController < ApplicationController
   private
   
   def campaign_params
-    params.require(:campaign).permit(:name, :start_at, :end_at, :end_at, :limit_start, :movie_utl)
-    params.require(:cuepoint).permit(:name)
+    params.require(:campaign).permit(:id, :name, :start_at, :end_at, :end_at, :limit_start, :movie_url, cuepoint_ids: [])
   end
   
+
 end

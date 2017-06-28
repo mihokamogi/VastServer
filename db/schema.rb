@@ -10,23 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170616130833) do
+ActiveRecord::Schema.define(version: 20170627122953) do
 
   create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "start_at"
     t.datetime "end_at"
     t.integer  "limit_start"
-    t.string   "movie_utl"
+    t.string   "movie_url"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "campaigns_cuepoints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "cuepoint_id"
-    t.integer  "campaign_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+  create_table "campaigns_cuepoints", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "campaign_id", null: false
+    t.integer "cuepoint_id", null: false
     t.index ["campaign_id"], name: "index_campaigns_cuepoints_on_campaign_id", using: :btree
     t.index ["cuepoint_id"], name: "index_campaigns_cuepoints_on_cuepoint_id", using: :btree
   end
@@ -46,6 +44,4 @@ ActiveRecord::Schema.define(version: 20170616130833) do
     t.datetime "updated_at",  null: false
   end
 
-  add_foreign_key "campaigns_cuepoints", "campaigns"
-  add_foreign_key "campaigns_cuepoints", "cuepoints"
 end

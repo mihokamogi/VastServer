@@ -51,6 +51,7 @@ class CuepointsController < ApplicationController
   
   def cuepoint_params
     params.require(:cuepoint).permit(:id, :name)
+    
   end
   
 end  

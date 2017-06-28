@@ -5,7 +5,7 @@ class CreateCampaigns < ActiveRecord::Migration[5.0]
       t.datetime :start_at
       t.datetime :end_at
       t.integer :limit_start
-      t.string :movie_utl
+      t.string :movie_url
 
       t.timestamps
     end

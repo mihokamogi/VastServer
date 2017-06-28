@@ -23,14 +23,14 @@
     
       <% @campaigns.each do |campaign| %>
         <tr>  
-          <td><%= link_to campaign.id, campaign_edit(campaign) %> </td>
+          <td><%= link_to campaign.id, edit_campaign_path(campaign) %> </td>
           <td><%= campaign.name %></td>
           <td><%= campaign.start_at %></td>
           <td><%= campaign.end_at %></td>
-          <td><%= limit.start %></td>
-          <td><%= movie_ul %></td>
-          <td><%= cuepoint.created_at %></td>
-          <td><%= cuepoint.updated_at %></td>
+          <td><%= campaign.limit_start %></td>
+         
+          <td><%= campaign.created_at %></td>
+          <td><%= campaign.updated_at %></td>
         </tr>
       <% end %>
     </tbody>
