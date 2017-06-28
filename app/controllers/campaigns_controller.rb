@@ -1,6 +1,14 @@
 class CampaignsController < ApplicationController
   def index
-    @campaigns = Campaign.all.page(params[:page]).per(10)
+  @campaigns = Campaign.all.page(params[:page]).per(10)
+    
+  response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
+  response.headers['Access-Control-Allow-Methods'] = 'GET'
+  headers['Access-Control-Request-Method'] = '*'
+  headers['Access-Control-Allow-Credentials'] = 'true'
+  headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type'
+    
+    
   end
 
   def new
@@ -29,6 +37,7 @@ class CampaignsController < ApplicationController
 
   def update
     @campaign = Campaign.find(params[:id])
+    @cuepoints = Cuepoint.all
     
     if@campaign.update(campaign_params)
       flash[:success] = "キャンペーンは正常に更新されました。"
@@ -47,6 +56,7 @@ class CampaignsController < ApplicationController
     redirect_to root_path
   end
 
+  
 
   private
   
