@@ -19,42 +19,42 @@
               
               <div class="form-group">
                 <label for="name" class="control-label col-md-3">Name</label>
-                <div class="col-sm-8">
+                <div class="col-md-8">
                   <%= f.text_field :name, class: 'form-control' %>
                 </div>
               </div>
             
               <div class="form-group">
                 <label for="start_at" class="control-label col-md-3">Start at</label>
-                <div class="col-sm-8">
+                <div class="col-md-8">
                   <%= f.text_field :start_at, class: 'form-control' %>
                 </div>
               </div>
             
               <div class="form-group">
                 <label for="end_at" class="control-label col-md-3">End at</label>
-                <div class="col-sm-8">
+                <div class="col-md-8">
                   <%= f.text_field :end_at, class: 'form-control' %>
                 </div>
               </div>
             
               <div class="form-group">
                 <label for="limit_start" class="control-label col-md-3">Limit start</label>
-                <div class="col-sm-8">
+                <div class="col-md-8">
                   <%= f.text_field :limit_start, class: 'form-control' %>
                 </div>
               </div>
             
               <div class="form-group">
                 <label for="movie_url" class="control-label col-md-3">Movie url</label>
-                  <div class="col-sm-8">
+                  <div class="col-md-8">
                     <%= f.text_field :movie_url, class: 'form-control' %>
                   </div>
               </div>
               
               <div class="form-group">
                 <label for="cuepoints" class="control-label col-md-3">Cuepoints</label>
-                <div class="col-sm-8">
+                <div class="col-md-8">
                 <%= f.collection_check_boxes(:cuepoint_ids, @cuepoints, :id, :name) do |cb| %>
                   <div class="checkbox">
                   <%= cb.label { cb.check_box + cb.text } %>
