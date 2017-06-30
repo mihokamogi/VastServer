@@ -1,14 +1,26 @@
 class CampaignsController < ApplicationController
+  
   def index
-  @campaigns = Campaign.all.page(params[:page]).per(10)
     
-  response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
-  response.headers['Access-Control-Allow-Methods'] = 'GET'
-  headers['Access-Control-Request-Method'] = '*'
-  headers['Access-Control-Allow-Credentials'] = 'true'
-  headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type'
+    unless params[:cuepoint_id]
+      
+    @campaigns = Campaign.all.page(params[:page]).per(10)
+    
+    else
+    
+    @cuepoint = Cuepoint.find(params[:cuepoint_id])
+    @campaigns = Campaign.current_available(@cuepoint)
     
     
+    response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
+    response.headers['Access-Control-Allow-Methods'] = 'GET'
+    headers['Access-Control-Request-Method'] = '*'
+    headers['Access-Control-Allow-Credentials'] = 'true'
+    headers['Access-Control-Allow-Headers'] = 'Origin, Content-Type'
+    
+    
+    end
+
   end
 
   def new
@@ -38,7 +50,6 @@ class CampaignsController < ApplicationController
   def update
     @campaign = Campaign.find(params[:id])
     @cuepoints = Cuepoint.all
-    
     if@campaign.update(campaign_params)
       flash[:success] = "キャンペーンは正常に更新されました。"
       redirect_to root_path
@@ -64,5 +75,5 @@ class CampaignsController < ApplicationController
     params.require(:campaign).permit(:id, :name, :start_at, :end_at, :end_at, :limit_start, :movie_url, cuepoint_ids: [])
   end
   
-
+  
 end
