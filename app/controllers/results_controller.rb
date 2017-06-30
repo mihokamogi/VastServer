@@ -5,8 +5,12 @@ class ResultsController < ApplicationController
   end  
    
   def record
-    send_data(Base64.decode64('R0lGODlhAQABAPAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='),
-type: 'image/gif', disposition: 'inline')
+    
+
+      
+    send_data(Base64.decode64('R0lGODlhAQABAPAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=='),type: 'image/gif', disposition: 'inline')
+  
+    end
   end
   
 end
