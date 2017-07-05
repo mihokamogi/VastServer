@@ -30,5 +30,4 @@ class ResultsController < ApplicationController
   end
   
   
-  
 end
