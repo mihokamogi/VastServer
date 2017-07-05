@@ -1,4 +1,3 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <VAST version="2.0">
   <% if @campaigns.length > 0 %>
@@ -11,12 +10,12 @@
             <Duration>00:00:15</Duration>
             <MediaFiles>
               <MediaFile delivery="progressive" type="video/mp4">
-                <![CDATA[ <% @campaign.movie_url %> ]]>
+                <![CDATA[ <%= campaign.movie_url %> ]]>
               </MediaFile>
             </MediaFiles>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[ <% "https://ide.c9.io/mihokamogi/techacademy/results?campaign=#{@campaign.id}&cuepoint=#{@cuepoint.id}&event=start" %> ]]></Tracking>
-              <Tracking event="complete"><![CDATA[ <% "https://ide.c9.io/mihokamogi/techacademy/results?campaign=#{@campaign.id}&cuepoint=#{@cuepoint.id}&event=end" %> ]]></Tracking>
+              <Tracking event="start"><![CDATA[ <%== "http://techacademy-mihokamogi.c9users.io:8080/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=start" %> ]]></Tracking>
+              <Tracking event="complete"><![CDATA[ <%== "http://techacademy-mihokamogi.c9users.io:8080/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=complete" %> ]]></Tracking>
             </TrackingEvents>
           </Linear>
         </Creative>
