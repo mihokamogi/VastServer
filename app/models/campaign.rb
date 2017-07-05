@@ -1,18 +1,12 @@
 class Campaign < ApplicationRecord
  
   has_and_belongs_to_many :cuepoints
-  has_many :results
+  has_many :results, :dependent => :destroy
 
   validates :name, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
   validates :limit_start, numericality: { greater_than: 0 , less_than: 10000}
   validates :movie_url,length: { minimum:5, maximum: 100 }
-  validate :end_at_must_be_future
-
-  def end_at_must_be_future
-    if start_at >= end_at
-      errors.add(:end_at, 'error!')
-    end
-  end
+  validates_datetime :end_at, :after => :start_at 
 
   def self.current_available(cuepoint)
       campaigns = cuepoint.campaigns.where("start_at <= '#{Time.now}' AND end_at >= '#{Time.now}'").to_a
