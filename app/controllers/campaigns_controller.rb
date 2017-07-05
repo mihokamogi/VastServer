@@ -12,6 +12,7 @@ class CampaignsController < ApplicationController
     @campaigns = Campaign.current_available(@cuepoint)
     
     
+    
     response.headers['Access-Control-Allow-Origin'] = request.headers['Origin'] || '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET'
     headers['Access-Control-Request-Method'] = '*'

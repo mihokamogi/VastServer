@@ -1,9 +1,10 @@
 <div class="container">
+  <div class="row">
   <div class="col-md-8">
 
   <h1>Results</h1>
 
-<% if @results.any? %>
+  <% if @results.any? %>
   <table class="table table-striped">
     <thead>
       <tr>
@@ -17,26 +18,23 @@
     </thead>
     
     <tbody>
-      <tr>  
       <% @results.each do |result| %>
-        
-          <td><%= campaign.id %> </td>
-          <td><%= campaign.name %></td>
-          <td><%= cuepoint.id %> </td>
-          <td><%= cuepoint.name %></td>
+        <tr>  
+          <td><%= result.campaign.id %> </td>
+          <td><%= result.campaign.name %></td>
+          <td><%= result.cuepoint.id %> </td>
+          <td><%= result.cuepoint.name %></td>
           <td><%= result.count_start %></td>
           <td><%= result.count_end %></td>
-          
+        </tr>
       <% end %>
-      </tr>
       
     </tbody>
   </table>
   <div>
-    <%= paginate @campaigns %>
+    <%= paginate @results %>
   </div>
   <% end %>
   </div>
+  </div>
 </div>
-
-
