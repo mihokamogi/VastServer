@@ -11,7 +11,8 @@ class ResultsController < ApplicationController
     @cuepoint = Cuepoint.find(params[:cuepoint])
     
     @result = Result.find_or_initialize_by(campaign: @campaign, cuepoint: @cuepoint) 
-    
+    @result.count_start = 0 if @result.count_start.nil?
+    @result.count_end = 0 if @result.count_end.nil?
     
     if params[:event] == "start"
       @result.count_start += 1
