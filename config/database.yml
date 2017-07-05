@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: vast-server_production
-  username: vast-server
-  password: <%= ENV['VAST-SERVER_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  database: message-board_production
+  username: message-board
+  password: <%= ENV['VASTSEVER_DATABASE_PASSWORD'] %>
