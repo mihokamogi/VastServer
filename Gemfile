@@ -56,3 +56,7 @@ gem "kaminari"
 # Datetime型 validates
 # https://github.com/adzap/validates_timeliness/
 gem 'validates_timeliness', '~> 3.0'
+
+group :production do
+  gem 'pg'
+end
