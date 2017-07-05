@@ -14,8 +14,8 @@
               </MediaFile>
             </MediaFiles>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[ <%== "#{request.protocol+request.host_with_port}/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=start" %> ]]></Tracking>
-              <Tracking event="complete"><![CDATA[ <%== "#{request.protocol+ request.host_with_port}/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=complete" %> ]]></Tracking>
+              <Tracking event="start"><![CDATA[ <%== "https://vast-server-kadaiversion.herokuapp.com/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=start" %> ]]></Tracking>
+              <Tracking event="complete"><![CDATA[ <%== "/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=complete" %> ]]></Tracking>
             </TrackingEvents>
           </Linear>
         </Creative>
