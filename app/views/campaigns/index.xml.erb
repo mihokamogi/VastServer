@@ -14,8 +14,8 @@
               </MediaFile>
             </MediaFiles>
             <TrackingEvents>
-              <Tracking event="start"><![CDATA[ <%== "http://techacademy-mihokamogi.c9users.io:8080/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=start" %> ]]></Tracking>
-              <Tracking event="complete"><![CDATA[ <%== "http://techacademy-mihokamogi.c9users.io:8080/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=complete" %> ]]></Tracking>
+              <Tracking event="start"><![CDATA[ <%== "#{request.protocol+ request.host_with_portresults}/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=start" %> ]]></Tracking>
+              <Tracking event="complete"><![CDATA[ <%== "#{request.protocol+ request.host_with_portresults}/results/record?campaign=#{campaign.id}&cuepoint=#{@cuepoint.id}&event=complete" %> ]]></Tracking>
             </TrackingEvents>
           </Linear>
         </Creative>
