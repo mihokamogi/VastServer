@@ -2,75 +2,7 @@
   <div class="row">
     <div class="col-md-offset-1 col-md-8">
       <div class="heading"><h2>キャンペーン編集</h2></div>
-        <div class="body">
-          <% if @campaign.errors.any? %>
-            <div id="error_explanation">
-             
-                <% @campaign.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-  
-        <%= form_for @campaign, html: {class: "form-horizontal"} do |f| %>
-          <div class="form-group">
-            <label for="name" class="control-label col-md-3">Name</label>
-              <div class="col-md-8">
-                <%= f.text_field :name, class: 'form-control' %>
-              </div>
-          </div>
-  
-          <div class="form-group">
-            <label for="start_at" class="control-label col-md-3">Start at</label>
-            <div class="col-md-8">
-              <%= f.text_field :start_at, class: 'form-control' %>
-            </div>
-          </div>
-        
-          <div class="form-group">
-            <label for="end_at" class="control-label col-md-3">End at</label>
-            <div class="col-md-8">
-              <%= f.text_field :end_at, class: 'form-control' %>
-            </div>
-          </div>
-        
-          <div class="form-group">
-            <label for="limit_start" class="control-label col-md-3">Limit start</label>
-            <div class="col-md-8">
-              <%= f.text_field :limit_start, class: 'form-control' %>
-            </div>
-          </div>
-        
-          <div class="form-group">
-            <label for="movie_url" class="control-label col-md-3">Movie url</label>
-              <div class="col-md-8">
-                <%= f.text_field :movie_url, class: 'form-control' %>
-              </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="cuepoints" class="control-label col-md-3">Cuepoints</label>
-            <div class="col-md-8">
-            <%= f.collection_check_boxes(:cuepoint_ids, @cuepoints, :id, :name) do |cb| %>
-              <div class="checkbox">
-              <%= cb.label { cb.check_box + cb.text } %>
-              </div>
-            <% end %>
-            </div>
-          </div>
-                
-      
-            <div class="form-group">    
-            <div class="text-left">
-              <%= f.submit "更新", class: "btn btn-success" %>
-              <a class="btn btn-default" href="/campaigns">中止</a>
-              <%= link_to "削除", @campaign, method: :delete, data: {confirm: "本当に削除してよろしいですか？" } %>
-            </div>
-            <div>
-          <% end %>
-        </div>
-      </div>
+      <%= render 'form' %>
     </div>
   </div>
 </div>
