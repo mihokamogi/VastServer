@@ -1,37 +1,39 @@
 <div class="container">
-<div class="col-md-8">
-
-<h1>キューポイント一覧</h1>
-
-<%= link_to "登録", new_cuepoint_path, class: "btn btn-default" %>
-
-<% if @cuepoints.any? %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>cuepoint</th>
-        <th>create</th>
-        <th>update</th>
-      </tr>
-    </thead>
+  <div class="row">
+    <div class="col-md-8">
     
-    <tbody>
+    <h1>キューポイント一覧</h1>
     
-      <% @cuepoints.each do |cuepoint| %>
-        <tr>  
-          <td><%= link_to cuepoint.id, edit_cuepoint_path(cuepoint) %></td>
-          <td><%= cuepoint.name %></td>
-          <td><%= cuepoint.created_at %></td>
-          <td><%= cuepoint.updated_at %></td>
-        </tr>
+    <%= link_to "登録", new_cuepoint_path, class: "btn btn-default" %>
+    
+      <% if @cuepoints.any? %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>id</th>
+              <th>cuepoint</th>
+              <th>create</th>
+              <th>update</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+          
+            <% @cuepoints.each do |cuepoint| %>
+              <tr>  
+                <td><%= link_to cuepoint.id, edit_cuepoint_path(cuepoint) %></td>
+                <td><%= cuepoint.name %></td>
+                <td><%= cuepoint.created_at %></td>
+                <td><%= cuepoint.updated_at %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <div>
+          <%= paginate @cuepoints %>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-  <div>
-    <%= paginate @cuepoints %>
-    <% end %>
-  </div>
+    </div>
   </div>
 </div>
 
