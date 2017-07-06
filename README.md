@@ -1,24 +1,26 @@
-# README
+VAST Server とは Ad Server の一種で、主に動画広告を配信するためのシステム。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ad Server
+:広告の配信と制御を行うためのシステム。例えば下記のような制御が出来る。
 
-Things you may want to cover:
+・特定場所に広告を配信する。
+・期間を指定する。
+・表示回数の上限を指定して、その上限に達すると配信を止める。
+・配信結果をレポートする。
 
-* Ruby version
+Vast
+:Video Ad Serving Templateの略で、動画の広告を配信するときに用いる フォーマットの規格。 
 
-* System dependencies
 
-* Configuration
+今回のVastServerは本編動画の途中に表示されるのではなく、Webサイトに直接表示されるようにする。
+(このように本編動画が無い場所に表示される動画広告を アウトストリーム - Outstream と呼ぶ。)
 
-* Database creation
 
-* Database initialization
+利用手順
+・まずキャンペーンを登録し、その後キューポイントを登録。
+・登録したキャンペーンの編集画面に遷移してキューポイントの情報をもたせたら、そのキューポイント編集画面に現れるVAST URLをコピー。
+・WebページにVAST URLを入力したら動画広告が流れる。(webページは準備されているものを使う。)
+・動画が流れ始めるとResult画面のStartがカウントアップされ、動画がながれきるとEndがカウントアップされる。
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* キャンペーンはキューポイントを保持しなくても良い（動画が流れないだけ）
+* キューポイントは複数のキャンペーンを保持するため、同じ動画を選択した場合どのキャンペーンの動画が流れているかはResult画面のみで把握可能。
