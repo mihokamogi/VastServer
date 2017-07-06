@@ -3,9 +3,11 @@ class Campaign < ApplicationRecord
   has_and_belongs_to_many :cuepoints
   has_many :results, :dependent => :destroy
 
-  validates :name, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
-  validates :limit_start, numericality: { greater_than: 0 , less_than: 10000}
-  validates :movie_url,length: { minimum:5, maximum: 100 }
+  validates :name, presence: true, length: { maximum: 50 }, uniqueness: { case_sensitive: false }
+  validates :limit_start, presence: true, numericality: { greater_than: 0 , less_than: 10000}
+  validates :movie_url, presence: true, length: { minimum:5, maximum: 100 }
+  validates :start_at, presence: true
+  validates :end_at, presence: true
   validates_datetime :end_at, :after => :start_at 
 
   def self.current_available(cuepoint)
