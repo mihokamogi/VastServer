@@ -1,0 +1,75 @@
+<div class="body">
+  <% if @campaign.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @campaign.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form_for @campaign, html: {class: "form-horizontal"} do |f| %>
+    <div class="form-group">
+      <label for="campaign[name]" class="control-label col-md-3">Name</label>
+      <div class="col-md-8">
+        <%= f.text_field :name, :placeholder => "must be done",class: 'form-control' %>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="campaign[start_at]" class="control-label col-md-3">Start at</label>
+      <div class="col-md-8">
+        <%= f.text_field :start_at, :placeholder => "ex) 2017/07/02 19:00:00", class: 'form-control' %>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="campaign[end_at]" class="control-label col-md-3">End at</label>
+      <div class="col-md-8">
+        <%= f.text_field :end_at, :placeholder => "ex) 2017/09/02 18:59:59", class: 'form-control' %>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="campaign[limit_start]" class="control-label col-md-3">Limit start</label>
+      <div class="col-md-8">
+        <%= f.text_field :limit_start, :placeholder => " must be < 10000", class: 'form-control' %>
+      </div>
+    </div>
+  
+    <div class="form-group">
+      <label for="campaign[movie_url]" class="control-label col-md-3">Movie url</label>
+      <div class="col-md-8">
+        <%= f.text_field :movie_url, :placeholder => "must be done", class: 'form-control' %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="campaign[cuepoints]" class="control-label col-md-3">Cuepoints</label>
+      <div class="col-md-8">
+      <%= f.collection_check_boxes(:cuepoint_ids, @cuepoints, :id, :name) do |cb| %>
+        <div class="checkbox">
+        <%= cb.label { cb.check_box + cb.text } %>
+        </div>
+      <% end %>
+      </div>
+    </div>
+          
+
+      <div class="form-group">
+        <% if @campaign.id.present? %>
+          <div class="text-left">
+            <%= f.submit "更新", class: "btn btn-success" %>
+            <a class="btn btn-default" href="/campaigns">中止</a>
+            <%= link_to "削除", @campaign, method: :delete, data: {confirm: "本当に削除してよろしいですか？" } %>
+          </div>
+        <% else %>
+          <div class="text">
+            <%= f.submit "登録", class: "btn btn-success" %>
+          </div>
+        <% end %>
+      <div>
+    <% end %>
+  </div>
+</div>
