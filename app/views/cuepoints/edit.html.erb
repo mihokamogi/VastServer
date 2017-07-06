@@ -14,13 +14,13 @@
           <% end %>
           <%= form_for @cuepoint, html: {class: "form-horizontal"} do |f| %>
             <div class="form-group">
-              <label for="name" class="control-label col-md-3">Name</label>
+              <label for="cuepoint[name]" class="control-label col-md-3">Name</label>
               <div class="col-md-6">
-                <%= f.text_field :name, class: 'form-control' %>
+                <%= f.text_field :name,:placeholder => "must be done", class: 'form-control' %>
               </div>
             </div>
             <div class="form-group">
-              <label for="url" class="control-label col-md-3">VAST URL</label>
+              <label for="cuepoint[url]" class="control-label col-md-3">VAST URL</label>
               <div class="col-md-8">
                 <%= vast_url(@cuepoint) %>
               </div>

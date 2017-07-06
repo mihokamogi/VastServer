@@ -15,10 +15,10 @@
             
           <%= form_for @cuepoint, html: {class: "form-horizontal"} do |f| %>
             <div class="form-group">
-              <label for="name" class="control-label col-md-3">Name</label>
-                <div class="col-md-8">
-                  <%= f.text_field :name, class: 'form-control' %>
-                </div>
+              <label for="cuepoint[name]" class="control-label col-md-3">Name</label>
+              <div class="col-md-6">
+                <%= f.text_field :name, :placeholder => "must be done", class: 'form-control' %>
+              </div>
             </div>
             
             
