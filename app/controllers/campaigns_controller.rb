@@ -31,13 +31,12 @@ class CampaignsController < ApplicationController
 
   def create
     @campaign = Campaign.new(campaign_params)
-    @cuepoints = Cuepoint.all
-    
     if @campaign.save
       flash[:success] = "キャンペーンを登録しました。"
       redirect_to root_path
     else
       flash[:danger] = "キャンペーンの登録に失敗しました。"
+      @cuepoints = Cuepoint.all
       render :new
     end
     
@@ -50,12 +49,12 @@ class CampaignsController < ApplicationController
 
   def update
     @campaign = Campaign.find(params[:id])
-    @cuepoints = Cuepoint.all
     if@campaign.update(campaign_params)
       flash[:success] = "キャンペーンは正常に更新されました。"
       redirect_to root_path
     else
       flash.now[:danger] = "キャンペーンは更新されませんでした。"
+      @cuepoints = Cuepoint.all
       render :edit
     end
   end
