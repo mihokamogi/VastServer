@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 20170627122953) do
 
   create_table "campaigns", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "start_at"
-    t.datetime "end_at"
-    t.integer  "limit_start"
-    t.string   "movie_url"
+    t.string   "name",        null: false
+    t.datetime "start_at",    null: false
+    t.datetime "end_at",      null: false
+    t.integer  "limit_start", null: false
+    t.string   "movie_url",   null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20170627122953) do
   end
 
   create_table "cuepoints", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
+    t.string   "name",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
