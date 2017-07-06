@@ -2,8 +2,7 @@ class CuepointsController < ApplicationController
   
   def index
    
-     
-      @cuepoints = Cuepoint.all.page(params[:page]).per(10)
+    @cuepoints = Cuepoint.all.order(:id).page(params[:page]).per(10)
   
   end
 

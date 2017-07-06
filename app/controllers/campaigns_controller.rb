@@ -4,7 +4,7 @@ class CampaignsController < ApplicationController
     
     unless params[:cuepoint_id]
       
-    @campaigns = Campaign.all.page(params[:page]).per(10)
+    @campaigns = Campaign.all.order(:id).page(params[:page]).per(10)
     
     else
     
